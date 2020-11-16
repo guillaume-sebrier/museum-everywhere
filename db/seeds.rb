@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create!(email: "email@test.com", password: 'passwordtest')
-user2 = User.create!(email: "email2@test.com", password: 'passwordtest2')
+20.times do
+  User.create!(email: Faker::Internet.email, password: Faker::Internet.password)
+end
 
+20.times do
+  Offer.create!(title: Faker::Artist.name, description: "Faker::Restaurant.description", user: User.all.sample)
+end
 
-Offer.create!(title:"Collection de shorts", description: "bla", user: user)
-Offer.create!(title:"Collection de boites d'allumettes", description: "C'est le feu", user: user2)
-Offer.create!(title:"Jardin à l'anglaise", description: "bla", user: user2)
-Offer.create!(title:"Maison de maitre", description: "bla", user: user2)
