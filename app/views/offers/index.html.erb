@@ -1,5 +1,38 @@
 <div class="container">
   <div class="header text-center">
+    <h2>Welcome to Museum everywhere</h2>
+    <br>
+  </div>
+  <div class="cards">
+    <% @offers.each do |offer| %>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.07), rgba(0,0,0,0.07)), url('https://source.unsplash.com/collection/1154400')">
+            <p> Category </p>
+          </div>
+        </div>
+        <div class="card-body">
+          <%= offer.title %>
+          <div class="card-bottom">
+            <div class="card-description">
+              <p class="description-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eum, sequi eaque dolor, dolorem iste, consectetur quidem magnam soluta unde.</p>
+            </div>
+            <div class="card-details">
+              <p>price</p>
+              <p>Duration</p>
+              <a href="#" class="btn-card">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<!-- <div class="container">
+  <div class="header text-center">
     <h1>Welcome to Museum everywhere</h1>
   </div>
   <div class="cards">
@@ -18,3 +51,38 @@
     <% end %>
   </div>
 </div>
+
+ -->
+
+
+
+
+
+
+
+
+
+<!--
+
+<div class="card">
+  <div class="card-top">
+    <img src='https://source.unsplash.com/collection/1154400)' class="card-img-top" alt="...">
+    <p> Category </p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title text-center">Visit title</h5>
+    <div class="card-bottom">
+      <div class="card-description">
+        <p class="description-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eum, sequi eaque dolor, dolorem iste, consectetur quidem magnam soluta unde.</p>
+      </div>
+      <div class="card-details">
+        <p>Price</p>
+        <p>Time</p>
+        <a href="#" class="btn-card">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+ -->
+
