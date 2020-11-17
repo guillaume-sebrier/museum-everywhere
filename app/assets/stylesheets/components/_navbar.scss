@@ -1,12 +1,30 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $dark-green;
+
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-brand img {
+    width: 40px;
+  }
+
+  .nav-link {
+    font-weight: bold;
+    color: $beige !important;
+  }
+
+  .dropdown-item {
+    font-weight: bold;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
