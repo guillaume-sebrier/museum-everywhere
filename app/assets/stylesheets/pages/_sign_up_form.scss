@@ -1,0 +1,32 @@
+.container {
+  width: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-actions {
+  border: 2px solid $dark-green;
+  background-color: white;
+  color: black;
+  padding: 1px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 150px;
+}
+
+.go-back-to-login {
+
+  border: none;
+  color: black;
+  padding: 10px 32px;
+  font-size: 16px;
+  margin: 8px 2px;
+
+
+}
+
+a:hover {
+  text-decoration-style: solid;
+}
