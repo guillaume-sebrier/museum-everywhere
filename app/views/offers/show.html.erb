@@ -6,4 +6,5 @@
       <li class="list-group-item"><%= review.rating %>⭐ - <%= review.content %></li>
     <% end %>
   </ul>
+  <%= link_to "Book this visit", new_offer_booking_path(@offer)  %>
 </div>
