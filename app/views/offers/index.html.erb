@@ -5,9 +5,15 @@
   <div class="cards">
     <% @offers.each do |offer| %>
       <%= link_to offer_path(offer) do %>
+        <% if offer.photos.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path offer.photos.first.key, height: 300, width: 400, crop: :fill %>)">
+            <%= offer.title %>
+          </div>
+        <% else %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/collection/1154400)">
           <%= offer.title %>
           </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
