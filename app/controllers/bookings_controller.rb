@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)
     else
