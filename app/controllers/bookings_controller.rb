@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
     if @booking.save!
       redirect_to offer_path(@offer)
     else
+      raise
       render :new
     end
   end

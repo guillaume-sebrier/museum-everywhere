@@ -7,7 +7,7 @@
     <% @offers.each do |offer| %>
       <div class="card">
         <div class="card-top">
-          <div class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.07), rgba(0,0,0,0.07)), url('https://source.unsplash.com/collection/1154400')">
+          <div class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.07), rgba(0,0,0,0.07)), url(<%= cl_image_path offer.photos.first.key, height: 300, width: 400, crop: :fill %>)">
             <p> Category </p>
           </div>
         </div>
@@ -15,12 +15,14 @@
           <%= offer.title %>
           <div class="card-bottom">
             <div class="card-description">
-              <p class="description-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eum, sequi eaque dolor, dolorem iste, consectetur quidem magnam soluta unde.</p>
+              <p class="description-text"> <%= offer.description[0..170]%>... </p>
             </div>
             <div class="card-details">
               <p>price</p>
               <p>Duration</p>
-              <a href="#" class="btn-card">Learn more</a>
+              <%= link_to offer_path(offer) do %>
+                <p class="btn-card">Learn more</p>
+              <% end %>
             </div>
           </div>
         </div>
