@@ -10,6 +10,6 @@
 end
 
 20.times do
-  Offer.create!(title: Faker::Artist.name, description: "Faker::Restaurant.description", user: User.all.sample)
+  Offer.create!(title: Faker::Artist.name, description: Faker::Restaurant.description, user: User.all.sample)
 end
 

@@ -6,12 +6,4 @@
       <li class="list-group-item"><%= review.rating %>⭐ - <%= review.content %></li>
     <% end %>
   </ul>
-  <div class="container">
-  <h3>Create new review</h3>
-  <%= simple_form_for [ @offer, @review ] do |f| %>
-    <%= f.input :comment %>
-    <%= f.input :rating %>
-    <%= f.submit "Submit review", class: "btn btn-primary" %>
-  <% end %>
-</div>
 </div>
