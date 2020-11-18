@@ -9,7 +9,7 @@
     <h2 class='p-3'>My bookings</h2>
     <% current_user.bookings.each do |booking| %>
       <p>Congratulations! We’re pleased to confirm your reservation for
-      <strong><%= booking.offer.title%>"!"</strong> </p>
+      <strong><%= booking.offer.title%> !</strong> </p>
       <p>Your visit will start on <strong>
       <%= booking.starting_time.strftime("%m/%d/%Y")%> at
       <%= booking.starting_time.strftime("%R")%></p></strong>

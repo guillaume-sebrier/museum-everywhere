@@ -7,7 +7,7 @@
       <%= simple_form_for [@offer, @booking] do |f| %>
         <%= f.label :starting_time, 'When do you want to book ?' %>
         <%= f.input :starting_time, label: false %>
-        <%= f.label :number_visitors, 'How many visitors2?' %>
+        <%= f.label :number_visitors, 'How many visitors?' %>
         <%= f.input :number_visitors, label: false %>
         <%= f.submit "Book your visit !", class: "font-weight-bold btn btn-success btn-block mt-5 btn-lg" %>
       <% end %>
