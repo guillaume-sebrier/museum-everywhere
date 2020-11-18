@@ -4,12 +4,12 @@
   <h3 class="mb-5"><em><%= @offer.title %></em></h3>
     <div class="row">
     <div class="col border-right">
-      <p>When do you want to book ?</p>
       <%= simple_form_for [@offer, @booking] do |f| %>
-        <%= f.input :starting_time, label: false%>
-      <p>How many visitors?</p>
-        <%= f.input :number_visitors, label: false%>
-      <%= f.submit "Book your visit !", class: "font-weight-bold btn btn-success btn-block mt-5 btn-lg" %>
+        <%= f.label :starting_time, 'When do you want to book ?' %>
+        <%= f.input :starting_time, label: false %>
+        <%= f.label :number_visitors, 'How many visitors2?' %>
+        <%= f.input :number_visitors, label: false %>
+        <%= f.submit "Book your visit !", class: "font-weight-bold btn btn-success btn-block mt-5 btn-lg" %>
       <% end %>
     </div>
     <div class="col">
