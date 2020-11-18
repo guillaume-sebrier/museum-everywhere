@@ -1,0 +1,35 @@
+h2 {
+  text-align: center;
+}
+
+.carousel {
+  text-align: center;
+}
+
+.d-flex {
+  justify-content: center;
+}
+
+i {
+  color: $medium-green;
+}
+
+.btn-ghost {
+  color: $intense-green;
+  border: 2px solid $intense-green;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+
+  .btn-ghost:hover {
+    opacity: 1;
+  }
+}
+
+.back-link {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
