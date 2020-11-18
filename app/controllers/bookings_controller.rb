@@ -1,10 +1,14 @@
 class BookingsController < ApplicationController
-
   def create
     @booking = Booking.new(booking_params)
-    if @booking.save
-      redirect_to booking_path(@booking)
+    @offer = Offer.find(params[:offer_id])
+    authorize @booking
+    @booking.offer = @offer
+    @booking.user = current_user
+    if @booking.save!
+      redirect_to offer_path(@offer)
     else
+      raise
       render :new
     end
   end
@@ -14,6 +18,8 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @offer = Offer.find(params[:offer_id])
+    authorize @booking
   end
 
   private
@@ -23,6 +29,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    # params.require(:booking).permit(:name, :dose, :photo)
+    params.require(:booking).permit(:starting_time, :ending_time, :number_visitor)
   end
 end

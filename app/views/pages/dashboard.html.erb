@@ -1,6 +1,14 @@
 <div class="container">
 
-<h1>Pages#dashboard</h1>
-<%= link_to "All available visits", offers_path  %>
+  <h1>My dashboard</h1>
+  <h2>My bookings</h2>
+  <% current_user.bookings.each do |booking| %>
+    <%= booking.offer.title %>  <%= booking.starting_time %>
+  <% end %>
+
+  <h2>My offers</h2>
+  <% current_user.offers.each do |offer| %>
+    <%= offer.title %>
+  <% end %>
 
 </div>
