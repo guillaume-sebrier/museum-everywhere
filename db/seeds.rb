@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 
+Bookings.destroy_all
+Offer.destroy_all
+User.destroy_all
+
 5.times do
   User.create!(email: Faker::Internet.email, password: Faker::Internet.password)
 end
