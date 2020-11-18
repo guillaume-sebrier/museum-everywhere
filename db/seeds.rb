@@ -19,7 +19,7 @@ jerome.photo.attach(io: file, filename: 'jerome.png', content_type: 'image/png')
 jerome.save!
 
 file = URI.open('https://res.cloudinary.com/gscloud/image/upload/v1605622917/retrogaming-collection-01-715x520_ut7pkv.jpg')
-offer = Offer.new(title: "Retrogaming Collection", description: Faker::Restaurant.description, user: User.all.sample, price: 10, address: '16 villa Gaudelet, Paris', category: "Unusual collection", duration: 30)
+offer = Offer.new(title: "Retrogaming Collection", description: Faker::Restaurant.description, user: User.all.sample, price: 10, address: '16 villa Gaudelet, Paris', category: "Objects", duration: 30)
 offer.photos.attach(io: file, filename: 'retrogaming.png', content_type: 'image/png')
 offer.save!
 
@@ -39,7 +39,7 @@ offer.photos.attach(io: file, filename: 'prouve.png', content_type: 'image/png')
 offer.save!
 
 file = URI.open('https://res.cloudinary.com/gscloud/image/upload/v1605622916/collectionmaillotdefoot_z0d6ai.jpg')
-offer = Offer.new(title: "Fabulous collection of soccer jerseys", description: Faker::Restaurant.description, user: User.all.sample, price: 11, address: "102 rue Etienne Marcel, Paris", category: "Unusual collection", duration: 50)
+offer = Offer.new(title: "Fabulous collection of soccer jerseys", description: Faker::Restaurant.description, user: User.all.sample, price: 11, address: "102 rue Etienne Marcel, Paris", category: "Objects", duration: 50)
 offer.photos.attach(io: file, filename: 'jersey.png', content_type: 'image/png')
 offer.save!
 
