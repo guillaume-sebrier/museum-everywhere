@@ -1,0 +1,26 @@
+.btn_submit {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $medium-green;
+  transition: background 0.3s ease;
+  font-size: 16px;
+  cursor: pointer;
+  width: 150px;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.btn-submit:hover {
+  background: $medium-green;
+  color: white;
+}
+
+h1,h3 {
+  text-align: center;
+}
+
+.mx-autoo {
+  text-align: center;
+}
