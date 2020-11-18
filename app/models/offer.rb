@@ -5,6 +5,6 @@ class Offer < ApplicationRecord
   has_many :reviews, through: :bookings
   has_many_attached :photos
 
-  validates :title, :description, :price, :address, presence: true
+  validates :title, :description, :price, :address, :capacity, presence: true
   validates :category, inclusion: { in: CATEGORY }
 end
