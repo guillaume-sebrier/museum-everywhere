@@ -1,3 +1,4 @@
+<%= render "shared/navbar" %>
 <div class="container">
   <h1 class="titleH1">My dashboard</h1>
 <hr>
@@ -5,28 +6,24 @@
     <div class="style-booking border-right"> -->
   <div class="row">
   <div class="col border-right">
-    <h2>My bookings</h2>
-    <%= current_user.bookings.each do |booking| %>
-      <%= booking.offer.title %>  <%= booking.starting_time %>
-      <p>Congratulations! We’re pleased to confirm your reservation for </p>
-      <%= booking.offer.title%>
-      <p>Your visit will start at</p>
-      <%= booking.starting_time%>
-      <p>Your reservation is for <%= booking.number_visitors%>person</p>
-        <!-- j'aimerai bien pouvoir mettre un s a la fin de person (si
-        plusieurs personnes ont reservé) -->
+    <h2 class='p-3'>My bookings</h2>
+    <% current_user.bookings.each do |booking| %>
+      <p>Congratulations! We’re pleased to confirm your reservation for
+      <strong><%= booking.offer.title%> !</strong> </p>
+      <p>Your visit will start on <strong>
+      <%= booking.starting_time.strftime("%m/%d/%Y")%> at
+      <%= booking.starting_time.strftime("%R")%></p></strong>
+      <p>Your reservation is for <strong><%= booking.number_visitors %> persons</strong> </p>
+      <%= link_to "Review this visit", "#", class: "btn btn-warning mb-3 " %>
+      <p class="border-bottom mb-5"></p>
     <% end %>
   </div>
 
- <!--  <div class="style-offer"> -->
   <div class="col">
-    <h2>My offers</h2>
+    <h2 class='p-3'>My offers</h2>
     <% current_user.offers.each do |offer| %>
       <%= offer.title %>
     <% end %>
   </div>
   </div>
 </div>
-
-<!-- <div class="col">
-      <h4 class="text-center">Payment form (TODO)</h4> -->
