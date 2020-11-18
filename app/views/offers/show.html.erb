@@ -1,10 +1,31 @@
-<div class="container">
-  <h2><%= @offer.title %></h2>
-  <p><%= @offer.description %></p>
+<div class="container mb-3">
+  <h2 class="m-4"><%= @offer.title %></h2>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div class="carousel my-2"><%= cl_image_tag @offer.photos.first.key, height: 300, width: 400, crop: :fill %></div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="d-flex flex-column mt-5">
+        <div class="p-2"><i class="fas fa-search"></i></i> <%= @offer.category %></div>
+        <div class="p-2"><i class="fas fa-map-marker-alt"></i> <%= @offer.address %></div>
+        <div class="p-2"><i class="fas fa-users"></i> <%= @offer.capacity %></div>
+        <div class="p-2"><i class="fas fa-euro-sign"></i> <%= @offer.price %></div>
+      </div>
+    </div>
+  </div>
+  <div class="container col-9 mt-4">
+    <p><%= @offer.description %></p>
+    <%= link_to "Book this visit", new_offer_booking_path(@offer), class:"btn btn-ghost" %>
+  </div>
+  <div class="back-link mt-4">
+    <%= link_to "Back to all offers", offers_path %>
+  </div>
+
+  <hr>
+  <h3>Reviews</h3>
   <ul class="list-group">
     <% @offer.reviews.each do |review| %>
       <li class="list-group-item"><%= review.rating %>⭐ - <%= review.content %></li>
     <% end %>
   </ul>
-  <%= link_to "Book this visit", new_offer_booking_path(@offer)  %>
 </div>
