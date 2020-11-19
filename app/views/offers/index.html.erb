@@ -1,40 +1,50 @@
 <div class="container">
-  <div class="header text-center">
-    <h2>Welcome to Museum Everywhere !</h2>
-    <br>
-  </div>
-  <div class="cards">
-    <% @offers.reverse_each do |offer| %>
-      <div class="card">
-        <div class="card-top">
-          <div class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.07), rgba(0,0,0,0.07)), url(<%= cl_image_path offer.photos.first.key, height: 300, width: 400, crop: :fill %>)">
-            <p> <%= offer.category%> </p>
-          </div>
-        </div>
-        <div class="card-body">
-          <%= offer.title %>
-          <div class="card-bottom">
-            <div class="card-description">
-              <p class="description-text"> <%= offer.description[0..150]%>... </p>
+  <div class="d-flex">
+    <div class="w-50 pr-3">
+
+    <div class="list-cards">
+      <% @offers.reverse_each do |offer| %>
+        <div class="card">
+          <div class="card-top">
+            <div class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.07), rgba(0,0,0,0.07)), url(<%= cl_image_path offer.photos.first.key, height: 300, width: 400, crop: :fill %>)">
+              <p> <%= offer.category%> </p>
             </div>
+          </div>
+          <div class="card-body">
+            <%= offer.title %>
+            <div class="card-bottom">
+              <div class="card-description">
+                <p class="description-text"> <%= offer.description[0..150]%>... </p>
+              </div>
             <div class="card-details">
               <div>
                 <p class="mb-0 font-weight-bold text-center">Price</p>
                 <p class="text-center"> <%= offer.price%> €</p>
               </div>
-              <div>
-                <p class="mb-0 font-weight-bold text-center">Duration</p>
-                <p class="text-center"><%= offer.duration%> min</p>
-              </div>
+                <div>
+                  <p class="mb-0 font-weight-bold text-center">Duration</p>
+                  <p class="text-center"><%= offer.duration%> min</p>
+                </div>
               <div>
                 <%= link_to offer_path(offer) do %>
                   <p class="btn-card">Learn more</p>
-                <% end %>
+                  <% end %>
               </div>
             </div>
           </div>
+          </div>
         </div>
+      <% end %>
+    </div>
+
+    </div>
+
+    <div class="w-50">
+      <div id="map"
+       style="width: 100%;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

@@ -3,12 +3,17 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[show destroy update edit]
 
   def index
+    @markers = @offers.geocoded.map do |offer|
+      {
+        lat: offer.latitude,
+        lng: offer.longitude
+      }
+    end
     if params[:search]
       @offers = policy_scope(Offer).where(category: params[:search][:category])
     else
       @offers = policy_scope(Offer)
     end
-    # @offers = policy_scope(Offer)
   end
 
   def show

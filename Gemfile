@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'pundit'
 gem 'faker'
+gem 'geocoder'
 
 gem 'cloudinary', '~> 1.16.0'
 
