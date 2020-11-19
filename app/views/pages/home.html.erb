@@ -1,10 +1,37 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1515281239448-2abe329fe5e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2569&q=80);">
   <div class="container">
-    <h1>Welcome to Museum Everywhere</h1>
-    <p>Culture is not as posh as you think, museums are everywhere</p>
-    <%= link_to "All available visits", offers_path, class: "btn btn-flat" %>
+    <div class= "text-center pb-4">
+      <h1>Welcome to Museum Everywhere</h1>
+      <p>Culture is not as posh as you think, museums are everywhere</p>
+    </div>
+    <div class="row justify-content-between">
+      <div class="col-12 search-bar">
+      <%= simple_form_for :search, url: offers_path, method: :get, class: "form-inline" do |f| %>
+        <div class= "form-row justify-content-around">
+          <%= f.input :address, placeholder:'Where do you want to go ?', required: false %>
+          <%= f.input :category, collection: @categories,prompt:'What are you interested in ?', required: false %>
+          <div class= "search-btn-box">
+            <%= f.button :submit, label:"Search", class: "btn btn-flat btn-search-bar" %>
+          </div>
+        </div>
+      <%end%>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- div class="search__container">
+    <p class="search__title">
+        Go ahead, hover over search
+    </p>
+    <input class="search__input" type="text" placeholder="Search">
+</div>
+
+<div class="credits__container">
+    <p class="credits__text">Background color: Pantone Color of the Year 2016 <a href="https://www.pantone.com/color-of-the-year-2016" class="credits__link">Rose Quartz</a></p>
+</div> -->
+
+
 <div class="container">
   <%#= render "shared/search_bar" %>
   <h3 class="slogan">Visit your neighbour's collection, garden or design flat !</h3>
@@ -40,4 +67,4 @@
   </div>
 </div>
 
-<%= render "shared/footer" %>
+
