@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
   get 'reviews/show'
-  get 'reviews/create'
-  get 'reviews/destroy'
-  get 'reviews/new'
   get 'reviews/update'
   get 'reviews/edit'
   devise_for :users
@@ -14,9 +11,10 @@ Rails.application.routes.draw do
     resources :offers, only: %i[create new destroy edit update]
   end
   resources :offers, only: %i[index show] do
-    resources :bookings, only: %i[new create destroy]
-    resources :reviews, only: %i[create destroy]
+    resources :bookings, only: %i[new create destroy] do
+      resources :reviews, only: %i[new create destroy]
     # resources :reviews, only: [:index, :show]
+    end
   end
 
 end

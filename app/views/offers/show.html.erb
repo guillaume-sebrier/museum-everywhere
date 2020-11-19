@@ -44,12 +44,19 @@
 
   <hr>
   <h3>Reviews</h3>
-
-  <p>⭐⭐⭐⭐⭐ - Collection impressionante ! Hôte passionné, bref, un must see.</p>
+  <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
 
   <ul class="list-group">
     <% @offer.reviews.each do |review| %>
-      <li class="list-group-item"><%= review.rating %>⭐ - <%= review.content %></li>
+      <li class="list-group-item">
+      <% review.rating.to_i.times do  %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <% (5-review.rating.to_i).times do  %>
+        <i class="far fa-star"></i>
+      <% end %>
+       - <%= review.comment %>
+      </li>
     <% end %>
   </ul>
 </div>
