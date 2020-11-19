@@ -41,7 +41,7 @@
       <h2 class='p-3'>My offers</h2>
       <% current_user.offers.each do |offer| %>
         <%= offer.title %>
-        <% offer.booking.each do |booking| %>
+        <% offer.bookings.each do |booking| %>
           <%= booking.user.first_name %> reserved for <%= booking.number_visitors %> persons on the <%= booking.starting_time.strftime("%d/%m/%Y")%> at <%= booking.starting_time.strftime("%R")%>
           <%= link_to "Confirm booking?", offer_booking_path(booking.offer, booking, {status: "confirmed"}), class: "btn btn-sucess", method: :patch, data: { confirm: 'Are you sure?' } %>
         <% end %>
