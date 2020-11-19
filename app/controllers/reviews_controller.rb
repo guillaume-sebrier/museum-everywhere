@@ -19,6 +19,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    authorize @review
+    @review.destroy
+    flash[:notice] = "Thank you for your contribution !"
+    redirect_to dashboard_path
   end
 
   def new
@@ -37,7 +41,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_review
-    @reviews = Review.find(params[:id])
+    @review = Review.find(params[:id])
   end
 
   def review_params
