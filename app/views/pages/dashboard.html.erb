@@ -11,10 +11,11 @@
       <p>Congratulations! We’re pleased to confirm your reservation for
       <strong><%= booking.offer.title%> !</strong> </p>
       <p>Your visit will start on <strong>
-      <%= booking.starting_time.strftime("%m/%d/%Y")%> at
+      <%= booking.starting_time.strftime("%d/%m/%Y")%> at
       <%= booking.starting_time.strftime("%R")%></p></strong>
       <p>Your reservation is for <strong><%= booking.number_visitors %> persons</strong> </p>
-      <%= link_to "Review this visit", "#", class: "btn btn-warning mb-3 " %>
+
+      <%= link_to "Review this visit", new_offer_booking_review_path(booking.offer, booking), class: "btn btn-warning mb-3 " %>
       <p class="border-bottom mb-5"></p>
     <% end %>
   </div>

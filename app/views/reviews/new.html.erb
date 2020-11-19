@@ -1,3 +1,15 @@
 <%= render "shared/navbar" %>
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h2 class="mb-3 text-center">Please review <strong><%= @booking.offer.title %></strong> <br> visited on <%= @booking.starting_time.strftime("%d/%m/%Y")%></h2>
+        <%= simple_form_for [@booking.offer, @booking, @review] do |f| %>
+          <%= f.label :rating, 'How would you rate your experience on a scale of 1 to 5?' %>
+          <%= f.input :rating, collection: (1..5).to_a, label: false %>
+          <%= f.label :comment, 'Please comment. What did you enjoy? How was the host? Would you recommend it to your friends?' %>
+          <%= f.input :comment, label: false %>
+          <%= f.submit "Submit!", class: "font-weight-bold btn btn-success mt-5 btn-lg text-center" %>
+        <% end %>
+      </div>
+    </div>
+</div>
