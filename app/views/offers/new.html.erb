@@ -16,7 +16,7 @@
             <%= f.input :address, label: 'Address', placeholder: '6 rue du Cherche-Midi, Paris' %>
             <%= f.input :description, as: :text, label: 'Description', placeholder: 'Hi! I have been building a collection of cactus for nearly 10 years, and have more than 50 varieties now. I would love to share my passion!' %>
             <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <div class="submit-button-new-offer">
+            <div class="submit-button">
               <%= f.submit "Create your visit !", class: "font-weight-bold btn btn-success btn-lg" %>
             </div>
           <% end %>
