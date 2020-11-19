@@ -13,6 +13,10 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <%= render 'shared/navbar' unless @no_navbar %>
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>

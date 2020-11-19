@@ -1,6 +1,26 @@
-<%= render "shared/navbar" %>
 <div class="container">
-  <h1>Offers#new</h1>
-  <p>Find me in app/views/offers/new.html.erb</p>
+  <h1 class="mb-3 text-center">Create a new visit</h1>
+    <div class="form-card">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <%= simple_form_for [current_user, @offer] do |f| %>
+            <div class="form-row justify-content-between">
+              <%= f.input :title, label: 'Title', placeholder: 'Giant cactus collection' %>
+              <%= f.input :category, label: 'Category', collection: Offer::CATEGORY, prompt: 'Gardens & plants' %>
+            </div>
+            <div class="form-row justify-content-between">
+              <%= f.input :duration, label: 'Duration (minutes)', collection: (10..120).to_a, prompt: '30' %>
+              <%= f.input :capacity, label: 'Maximum capacity', collection: (1..50).to_a, prompt: '4' %>
+            </div>
+            <%= f.input :price, label: 'Price per person (euros)', collection: (1..50).to_a, prompt: '6' %>
+            <%= f.input :address, label: 'Address', placeholder: '6 rue du Cherche-Midi, Paris' %>
+            <%= f.input :description, as: :text, label: 'Description', placeholder: 'Hi! I have been building a collection of cactus for nearly 10 years, and have more than 50 varieties now. I would love to share my passion!' %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            <div class="submit-button">
+              <%= f.submit "Create your visit !", class: "font-weight-bold btn btn-success btn-lg" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 </div>
-

@@ -6,14 +6,24 @@ class BookingsController < ApplicationController
     @booking.offer = @offer
     @booking.user = current_user
     if @booking.save!
-      redirect_to offer_path(@offer)
+      redirect_to dashboard_path
+      flash[:notice] = "Your booking is awaiting confirmation !"
     else
-      raise
       render :new
     end
   end
 
   def destroy
+  end
+
+  def edit
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(flat_params)
+    redirect_to :back
+    flash[:notice] = "Booking Confirmed !"
   end
 
   def new
@@ -29,6 +39,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:starting_time, :ending_time, :number_visitors)
+    params.require(:booking).permit(:starting_time, :ending_time, :number_visitors, :status)
   end
 end

@@ -3,24 +3,29 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[show destroy update edit]
 
   def index
-    @offers = policy_scope(Offer)
     @markers = @offers.geocoded.map do |offer|
       {
         lat: offer.latitude,
         lng: offer.longitude
       }
     end
+    if params[:search]
+      @offers = policy_scope(Offer).where(category: params[:search][:category])
+    else
+      @offers = policy_scope(Offer)
+    end
   end
 
   def show
-    @review = Review.new
-    authorize @review
+    authorize @offer
   end
 
   def create
     @offer = Offer.new(offer_params)
+    @offer.user = current_user
     authorize @offer
     if @offer.save
+      flash[:notice] = "Your new visit offer is posted!"
       redirect_to offer_path(@offer)
     else
       render :new
@@ -32,6 +37,7 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
+    authorize @offer
   end
 
   def update
@@ -52,6 +58,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :price, :address, :category, :capacity, photos: [])
+    params.require(:offer).permit(:title, :description, :price, :duration, :address, :category, :capacity, photos: [])
   end
 end

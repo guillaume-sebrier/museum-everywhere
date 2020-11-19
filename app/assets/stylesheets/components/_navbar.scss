@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $dark-green;
+  height: 70px;
 
   .navbar-collapse {
     flex-grow: 0;
@@ -19,6 +20,8 @@
     font-weight: bold;
   }
 }
+
+
 
 
 // .navbar-lewagon .navbar-collapse {
