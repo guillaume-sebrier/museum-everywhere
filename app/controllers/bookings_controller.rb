@@ -16,6 +16,16 @@ class BookingsController < ApplicationController
   def destroy
   end
 
+  def edit
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(flat_params)
+    redirect_to :back
+    flash[:notice] = "Booking Confirmed !"
+  end
+
   def new
     @booking = Booking.new
     @offer = Offer.find(params[:offer_id])
@@ -29,6 +39,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:starting_time, :ending_time, :number_visitors)
+    params.require(:booking).permit(:starting_time, :ending_time, :number_visitors, :status)
   end
 end

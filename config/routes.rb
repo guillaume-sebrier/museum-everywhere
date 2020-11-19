@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'reviews/show'
-  get 'reviews/update'
-  get 'reviews/edit'
   devise_for :users
   root to: 'pages#home'
   get "/dashboard", to: "pages#dashboard"
@@ -11,7 +8,7 @@ Rails.application.routes.draw do
     resources :offers, only: %i[create new destroy edit update]
   end
   resources :offers, only: %i[index show] do
-    resources :bookings, only: %i[new create destroy] do
+    resources :bookings, only: %i[new create destroy edit update] do
       resources :reviews, only: %i[new create destroy]
     # resources :reviews, only: [:index, :show]
     end
