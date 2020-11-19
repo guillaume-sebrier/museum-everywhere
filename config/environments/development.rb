@@ -28,6 +28,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.assets.check_precompiled_asset = false
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :cloudinary
 
