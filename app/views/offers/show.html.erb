@@ -10,7 +10,7 @@
             <% else %>
               <div class="carousel-item">
             <% end %>
-            <%= cl_image_tag photo.key, height: 300, width: 400, class:"d-block w-100" %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
             </div>
           <% end %>
         </div>
@@ -54,7 +54,7 @@
       <% (5-review.rating.to_i).times do  %>
         <i class="far fa-star"></i>
       <% end %>
-       - <%= review.comment %>
+       - by <strong><%= review.booking.user.first_name %> <%= review.booking.user.last_name[0] %>.</strong> - <%= review.comment %>
       </li>
     <% end %>
   </ul>

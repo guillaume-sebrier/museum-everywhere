@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.offer = @offer
     @booking.user = current_user
+    @booking.status = "On hold"
     if @booking.save!
       redirect_to dashboard_path
       flash[:notice] = "Your booking is awaiting confirmation !"
@@ -21,8 +22,9 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(flat_params)
-    redirect_to :back
+    @booking.update(booking_params)
+    authorize @booking
+    redirect_to dashboard_path
     flash[:notice] = "Booking Confirmed !"
   end
 
