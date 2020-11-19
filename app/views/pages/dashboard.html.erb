@@ -1,9 +1,6 @@
-<%= render "shared/navbar" %>
 <div class="container">
   <h1 class="titleH1">My dashboard</h1>
 <hr>
-  <!-- <div class="containerdash">
-    <div class="style-booking border-right"> -->
   <div class="row">
   <div class="col border-right">
     <h2 class='p-3'>My bookings</h2>
@@ -20,12 +17,11 @@
     <% end %>
   </div>
 
-  <div class="col">
-    <h2 class='p-3'>My offers</h2>
-    <% current_user.offers.each do |offer| %>
-      <%= offer.title %>
-    <% end %>
-  </div>
+    <div class="col">
+      <h2 class='p-3'>My offers</h2>
+      <% current_user.offers.each do |offer| %>
+        <%= offer.title %>
+      <% end %>
+    </div>
   </div>
 </div>
-<%= render "shared/footer" %>
