@@ -57,3 +57,5 @@ offer.photos.attach(io: file, filename: 'shorts.png', content_type: 'image/png')
 file = URI.open('https://res.cloudinary.com/gscloud/image/upload/v1605698810/nadal_ef0pqi.jpg')
 offer.photos.attach(io: file, filename: 'shorts.png', content_type: 'image/png')
 offer.save!
+
+

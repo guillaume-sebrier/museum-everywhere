@@ -1,0 +1,42 @@
+.search-bar {
+  // .container {
+  padding-top: 64px;
+  font-size: 22px;
+  font-weight: 900;
+  text-align: center;
+  color: $medium-green;
+  width: 200px;
+  padding: 12px 24px;
+  transition: transform 250ms ease-in-out;
+  font-size: 14px;
+  line-height: 18px;
+  color: white;
+  background-color: transparent;
+
+  label {
+    text-align: left !important;
+    color: white;
+  }
+}
+
+.btn-search-bar {
+  height: 38px;
+  margin-bottom: -9px;
+}
+
+.search_address {
+  width: 40%
+}
+
+.search_category {
+  width: 40%
+}
+
+.search-btn-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// .label {
+//   color: #white
+// }
