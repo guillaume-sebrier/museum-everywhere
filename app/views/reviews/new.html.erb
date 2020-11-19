@@ -1,5 +1,6 @@
 <div class="container">
-  <h2 class="mb-3 text-center">Please review <strong><%= @booking.offer.title %></strong> <br> visited on <%= @booking.starting_time.strftime("%d/%m/%Y")%></h2>
+  <h2 class="text-center">Please review <strong><%= @booking.offer.title %></strong></h2>
+  <h4 class="mb-3 text-center">visited on <%= @booking.starting_time.strftime("%d/%m/%Y")%></h4>
   <div class="form-card">
     <div class="row justify-content-center">
       <div class="col-12">
