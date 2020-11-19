@@ -1,30 +1,51 @@
-<%= render "shared/navbar" %>
 <div class="container">
   <h1 class="titleH1">My dashboard</h1>
 <hr>
-  <!-- <div class="containerdash">
-    <div class="style-booking border-right"> -->
   <div class="row">
   <div class="col border-right">
     <h2 class='p-3'>My bookings</h2>
-    <% current_user.bookings.each do |booking| %>
-      <p>Congratulations! We’re pleased to confirm your reservation for
-      <strong><%= booking.offer.title%> !</strong> </p>
+    <% current_user.bookings.reverse_each do |booking| %>
+      <h6>Congratulations! We’re pleased to confirm your reservation for
+      <strong><%= booking.offer.title%> !</strong> </h6>
       <p>Your visit will start on <strong>
-      <%= booking.starting_time.strftime("%m/%d/%Y")%> at
-      <%= booking.starting_time.strftime("%R")%></p></strong>
+      <%= booking.starting_time.strftime("%d/%m/%Y")%> at
+      <%= booking.starting_time.strftime("%R")%></strong></p>
       <p>Your reservation is for <strong><%= booking.number_visitors %> persons</strong> </p>
-      <%= link_to "Review this visit", "#", class: "btn btn-warning mb-3 " %>
-      <p class="border-bottom mb-5"></p>
+      <% if booking.reviews.first.nil?%>
+        <%= link_to "Review this visit", new_offer_booking_review_path(booking.offer, booking), class: "btn btn-warning mb-3 " %>
+        <p class="border-bottom mb-5"></p>
+      <% else %>
+        <h6 class="pt-3"> You already reviewed this visit, here is your review: </h6>
+        <% booking.reviews.each do |review| %>
+          <li class="list-group-item">
+          <div>
+            <% review.rating.to_i.times do  %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5-review.rating.to_i).times do  %>
+              <i class="far fa-star"></i>
+            <% end %>
+             - <%= review.comment %>
+           <%= link_to offer_booking_review_path(review.booking.offer, review.booking, review ), class: "text-right", method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fas fa-trash-alt"></i>
+             <% end %>
+           </div>
+          </li>
+        <% end %>
+        <p class="border-bottom pt-3 mb-5"></p>
+      <% end %>
     <% end %>
   </div>
 
-  <div class="col">
-    <h2 class='p-3'>My offers</h2>
-    <% current_user.offers.each do |offer| %>
-      <%= offer.title %>
-    <% end %>
-  </div>
+    <div class="col">
+      <h2 class='p-3'>My offers</h2>
+      <% current_user.offers.each do |offer| %>
+        <%= offer.title %>
+        <% offer.bookings.each do |booking| %>
+          <%= booking.user.first_name %> reserved for <%= booking.number_visitors %> persons on the <%= booking.starting_time.strftime("%d/%m/%Y")%> at <%= booking.starting_time.strftime("%R")%>
+          <%= link_to "Confirm booking?", offer_booking_path(booking.offer, booking, {status: "confirmed"}), class: "btn btn-sucess", method: :patch, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
-<%= render "shared/footer" %>

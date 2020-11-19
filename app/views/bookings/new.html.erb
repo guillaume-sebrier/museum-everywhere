@@ -1,20 +1,21 @@
-<%= render "shared/navbar" %>
-<div class="container container-narrow">
+<div class="container">
   <h1 class="mb-3 text-center">Booking form</h1>
   <h3 class="mb-5 text-center"><em><%= @offer.title %></em></h3>
     <div class="row">
-    <div class="col border-right">
-      <%= simple_form_for [@offer, @booking] do |f| %>
-        <%= f.label :starting_time, 'When do you want to book ?' %>
-        <%= f.input :starting_time, label: false %>
-        <%= f.label :number_visitors, 'How many visitors?' %>
-        <%= f.input :number_visitors, label: false %>
-        <%= f.submit "Book your visit !", class: "font-weight-bold btn btn-success mt-5 btn-lg" %>
-      <% end %>
+      <div class="col border-right">
+        <div class="form-card">
+          <%= simple_form_for [@offer, @booking] do |f| %>
+            <%= f.input :starting_time, label: 'When do you want to book ?' %>
+            <%= f.input :number_visitors, collection: (1..50).to_a, label: 'How many visitors?' %>
+            <div class="submit-button">
+              <%= f.submit "Book your visit !", class: "font-weight-bold btn btn-success btn-lg" %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <div class="col">
-      <h4 class="text-center"></h4>
-      <%= image_tag asset_path('payment.png') %>
-    </div>
+      <div class="col">
+        <h4 class="text-center"></h4>
+        <%= image_tag asset_path('payment.png') %>
+      </div>
     </div>
 </div>

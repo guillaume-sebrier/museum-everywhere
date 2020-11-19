@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @categories = Offer.distinct.pluck(:category)
+    @no_navbar = true
   end
 
   def dashboard
