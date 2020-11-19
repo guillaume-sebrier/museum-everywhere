@@ -5,11 +5,9 @@ class Offer < ApplicationRecord
   has_many :reviews, through: :bookings
   has_many_attached :photos
 
-  validates :title, :description, :price, :address, :capacity, presence: true
+  validates :title, :description, :price, :address, :capacity, :capacity, presence: true
   validates :category, inclusion: { in: CATEGORY }
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
-
 end
