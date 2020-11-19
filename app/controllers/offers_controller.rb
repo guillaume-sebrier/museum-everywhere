@@ -7,14 +7,15 @@ class OffersController < ApplicationController
   end
 
   def show
-    @review = Review.new
-    authorize @review
+    authorize @offer
   end
 
   def create
     @offer = Offer.new(offer_params)
+    @offer.user = current_user
     authorize @offer
     if @offer.save
+      flash[:notice] = "Your new visit offer is posted!"
       redirect_to offer_path(@offer)
     else
       render :new
@@ -47,6 +48,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :price, :address, :category, :capacity, photos: [])
+    params.require(:offer).permit(:title, :description, :price, :duration, :address, :category, :capacity, photos: [])
   end
 end
