@@ -25,6 +25,7 @@ gem 'devise'
 gem 'pundit'
 gem 'faker'
 gem 'geocoder'
+gem 'turbolinks_render'
 
 gem 'cloudinary', '~> 1.16.0'
 
