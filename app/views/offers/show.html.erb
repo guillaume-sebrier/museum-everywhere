@@ -26,6 +26,9 @@
     </div>
     <div class="col-12 col-lg-6">
       <div class="d-flex flex-column mt-3 show-details">
+        <% if !@offer.user.first_name.nil? && !@offer.user.last_name.nil? %>
+          <h5>Proposed by <%= @offer.user.first_name %> <%= @offer.user.last_name[0] %>.</h5>
+        <% end %>
         <p class="font-weight-bolder">What you'll discover:</p>
         <p><%= @offer.description %></p>
         <div class="booking-details-show d-flex align-items-center">
