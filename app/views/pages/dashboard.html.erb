@@ -1,9 +1,9 @@
 <div class="container">
   <h1 class="titleH1">My dashboard</h1>
-<hr>
+
   <div class="row">
-  <div class="col border-right">
-    <h2 class='p-3'id="my-booking-confirm">My bookings</h2>
+  <div class="col offers-box">
+    <h3 class='p-3 dashboard-titles'>My bookings</h3>
     <% current_user.bookings.reverse_each do |booking| %>
       <% if booking.status == "Confirm" %>
         <h6>Congratulations! We’re pleased to confirm your reservation for
@@ -43,21 +43,24 @@
   </div>
 
     <div class="col">
-      <h2 class='p-3'id="my-offer-confirm">My offers</h2>
-      <% current_user.offers.each do |offer| %>
-        <h6><%= offer.title %></h6>
-        <% offer.bookings.each do |booking| %>
-          <p class='pb-3'><strong><%= booking.user.first_name %></strong> reserved for <%= booking.number_visitors %> persons on the <%= booking.starting_time.strftime("%d/%m/%Y")%> at <%= booking.starting_time.strftime("%R")%></p>
-          <p>Status: <strong> <%= booking.status %> </strong></p>
-          <% if booking.status != 'Confirm' %>
-            <%= simple_form_for ([booking.offer, booking]) do |f| %>
-              <%= f.input :status, label: "Do you want to confirm this booking?",  as: :radio_buttons, collection: ["Confirm", "Reject"]%>
-              <%= f.button :submit, 'Submit', class: 'btn btn-warning' %>
+      <div class="offers-box col">
+        <h3 class='p-3 dashboard-titles'>My offers</h3>
+
+        <% current_user.offers.each do |offer| %>
+          <h6><%= offer.title %></h6>
+          <% offer.bookings.each do |booking| %>
+            <p class='pb-3'><strong><%= booking.user.first_name %></strong> reserved for <%= booking.number_visitors %> persons on the <%= booking.starting_time.strftime("%d/%m/%Y")%> at <%= booking.starting_time.strftime("%R")%></p>
+            <p>Status: <strong> <%= booking.status %> </strong></p>
+            <% if booking.status != 'Confirm' %>
+              <%= simple_form_for ([booking.offer, booking]) do |f| %>
+                <%= f.input :status, label: "Do you want to confirm this booking?",  as: :radio_buttons, collection: ["Confirm", "Reject"]%>
+                <%= f.button :submit, 'Submit', class: 'btn btn-warning' %>
+              <% end %>
             <% end %>
           <% end %>
+          <p class="border-bottom pt-3 mb-5"></p>
         <% end %>
-      <% end %>
-    </div>
+      </div>
   </div>
 </div>
 
