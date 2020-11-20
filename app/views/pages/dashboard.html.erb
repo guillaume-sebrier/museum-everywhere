@@ -3,7 +3,7 @@
 <hr>
   <div class="row">
   <div class="col border-right">
-    <h2 class='p-3'>My bookings</h2>
+    <h2 class='p-3'id="my-booking-confirm">My bookings</h2>
     <% current_user.bookings.reverse_each do |booking| %>
       <% if booking.status == "Confirm" %>
         <h6>Congratulations! We’re pleased to confirm your reservation for
@@ -43,7 +43,7 @@
   </div>
 
     <div class="col">
-      <h2 class='p-3'>My offers</h2>
+      <h2 class='p-3'id="my-offer-confirm">My offers</h2>
       <% current_user.offers.each do |offer| %>
         <h6><%= offer.title %></h6>
         <% offer.bookings.each do |booking| %>
