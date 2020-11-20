@@ -70,6 +70,10 @@
   font-size: 22px;
 }
 
+.typed {
+  height: 100px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
