@@ -9,7 +9,7 @@
       <div class="col-12 search-bar">
       <%= simple_form_for :search, url: offers_path, method: :get, class: "form-inline" do |f| %>
         <div class= "form-row justify-content-around">
-          <%= f.input :address, placeholder:'Where do you want to go ?', required: false %>
+          <%= f.input :address, placeholder:'Where do you want to go ?', required: false, input_html: { id:"visit_address" }, class:"search-bar-address-input" %>
           <%= f.input :category, collection: @categories,prompt:'What are you interested in ?', required: false %>
           <div class= "search-btn-box">
             <%= f.submit "Search", class: "btn btn-flat btn-search-bar" %>
