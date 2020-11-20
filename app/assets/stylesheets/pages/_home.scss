@@ -42,7 +42,6 @@
   width: 100%;
 }
 
-
 .card-category {
   background-size: cover;
   background-position: center;
@@ -55,6 +54,12 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease;
+}
+
+.card-category:hover {
+   opacity:0.8;
+  // touch-action: pinch-zoom
 }
 
 // .card-category {
@@ -108,3 +113,4 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
