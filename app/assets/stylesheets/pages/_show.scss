@@ -1,5 +1,21 @@
 .offer-title {
   text-align: center;
+  font-weight: 300;
+}
+
+.review-title {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+#collection-card-show {
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+#review-card-show {
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .carousel {
@@ -27,6 +43,24 @@
     opacity: 1;
   }
 }
+
+.btn-group-toggle {
+  color: white;
+  background-color: $intense-green;
+  border: 2px solid $intense-green;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: 400;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-group-toggle:hover {
+  opacity: 1;
+  color: white;
+}
+
+
 
 .back-link {
   text-decoration: none;
