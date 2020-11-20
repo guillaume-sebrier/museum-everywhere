@@ -28,6 +28,9 @@ if (mapElement) {
     addMarkers(map, markers);
     fitMapToMarkers(map, markers);
 
+    this.map.once('load', () => {
+        this.map.resize();
+    });
   }
 };
 

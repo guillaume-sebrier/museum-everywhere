@@ -48,25 +48,33 @@
 .description-text {
   font-size: 12px;
   text-align: justify;
+  margin-bottom: 0;
 }
 
 .card-details {
-    display: flex;
-    justify-content: space-between;
-    padding: 13px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+
+}
+
+.details-wrapper {
+  // position: absolute;
+  // bottom: 0;
 }
 
 .btn-card {
   background-color: #fff;
   color: #56876d;
   border: 1px solid #56876d;
-  padding: 9px 10px;
+  padding: 8px 5px;
   border-radius: 40px;
   font-weight: normal;
   opacity: 0.6;
   transition: opacity 0.3s ease;
   font-family: Poppins;
   font-size: 14px;
+  margin: 0px;
 }
 
 .btn-card a {
@@ -79,6 +87,9 @@
 
 .card-bottom {
   margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .list-cards {
