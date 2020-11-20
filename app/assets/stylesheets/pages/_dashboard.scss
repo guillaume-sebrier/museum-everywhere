@@ -5,13 +5,31 @@ justify-content: space-between;
 
 .titleH1 {
   text-align: center;
+  margin: 27px 0;
 }
 
 .style-booking {
   height: 600px;
 }
 
-#my-booking-confirm {
+#my-offer-confirm {
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,2);
+  box-shadow: 0 0 15px rgba(0,0,0,07);
+  background-color: $light-beige-background;
+}
+
+
+.dashboard-titles {
+  font-weight: 300;
+  // font-size: 29px;
+  text-align: center;
+  margin-bottom: 13px;
+}
+
+
+
+.offers-box {
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: $light-beige-background;
 }
