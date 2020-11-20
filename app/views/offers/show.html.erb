@@ -1,7 +1,7 @@
 <div class="container mb-5">
   <h2 class="m-4 offer-title"><%= @offer.title %></h2>
   <div class="row" id="collection-card-show">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6" id="caroussel-show">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <% @offer.photos.each do |photo| %>
