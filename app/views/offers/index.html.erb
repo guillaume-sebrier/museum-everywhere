@@ -10,27 +10,27 @@
             </div>
           </div>
           <div class="card-body">
-            <%= offer.title %>
             <div class="card-bottom">
               <div class="card-description">
+                <%= offer.title %>
                 <p class="description-text"> <%= offer.description[0..150]%>... </p>
               </div>
-            <div class="card-details">
-              <div>
-                <p class="mb-0 font-weight-bold text-center">Price</p>
-                <p class="text-center"> <%= offer.price%> €</p>
-              </div>
+              <div class="card-details">
                 <div>
-                  <p class="mb-0 font-weight-bold text-center">Duration</p>
+                  <p class="m-0 font-weight-bold text-center">Price</p>
+                  <p class="text-center"> <%= offer.price%> €</p>
+                </div>
+                <div>
+                  <p class="m-0 font-weight-bold text-center">Duration</p>
                   <p class="text-center"><%= offer.duration%> min</p>
                 </div>
-              <div>
-                <%= link_to offer_path(offer) do %>
-                  <p class="btn-card">Learn more</p>
-                  <% end %>
+                <div>
+                  <%= link_to offer_path(offer) do %>
+                    <p class="btn-card">Learn more</p>
+                    <% end %>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       <% end %>
